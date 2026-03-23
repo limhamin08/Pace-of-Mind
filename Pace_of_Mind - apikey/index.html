@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마음의 보폭 | Study Pace</title>
+    <style>
+        /* 1. 기본 스타일 (하민님의 감성: 미니멀 & 차분함) */
+        body { margin: 0; font-family: 'Noto Sans KR', sans-serif; color: #333; line-height: 1.6; background-color: #f9f9f7; }
+        
+        /* 2. 히어로 섹션 */
+        .hero { 
+            height: 100vh; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1350&q=80'); /* 카페 이미지 */
+            background-size: cover; color: white; text-align: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; animation: fadeIn 2s; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* 3. 특징 섹션 (Grid 활용) */
+        .features { padding: 80px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+
+        /* 4. 애니메이션 */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* 5. 버튼 스타일 */
+        .btn { margin-top: 20px; padding: 12px 30px; background: #8e8d8a; color: white; text-decoration: none; border-radius: 25px; transition: 0.3s; }
+        .btn:hover { background: #e85a4f; }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>마음의 보폭</h1>
+        <p>당신의 속도대로, 가장 나다운 몰입의 시간</p>
+        <a href="#features" class="btn">자세히 보기</a>
+    </section>
+
+    <section id="features" class="features">
+        <div class="card">
+            <h3>MBTI 맞춤형</h3>
+            <p>당신의 성향에 꼭 맞는 공부 환경을 제안합니다.</p>
+        </div>
+        <div class="card">
+            <h3>감성 사운드</h3>
+            <p>오늘의 기분에 맞춰 흐르는 차분한 배경음악.</p>
+        </div>
+        <div class="card">
+            <h3>보폭 기록</h3>
+            <p>결과보다 중요한 과정, 당신만의 보폭을 기록하세요.</p>
+        </div>
+    </section>
+</body>
+</html>

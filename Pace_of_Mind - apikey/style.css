@@ -1,0 +1,181 @@
+:root {
+    --white: #ffffff;
+    --bg-light: #f9f9f7;
+    --text-dark: #333;
+    --accent: #8e8d8a;
+    
+    /* Emotion Colors */
+    --fire: #ffd8b1;
+    --wake: #d1f2ff;
+    --step: #d4edda;
+    --focus: #e2d1f9;
+    --calm: #f5f5dc;
+    --complex: #e9ecef;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Navigation */
+nav { height: 70px; display: flex; align-items: center; background: rgba(255,255,255,0.9); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
+.nav-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.logo { font-weight: bold; font-size: 1.2rem; color: var(--accent); }
+.nav-btn { text-decoration: none; color: white; background: var(--accent); padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; }
+
+/* Hero */
+.hero { padding: 160px 0 100px; text-align: center; background: white; }
+.tagline { color: var(--accent); font-weight: bold; margin-bottom: 10px; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+.hero-sub { font-size: 1.2rem; color: #777; margin-bottom: 40px; }
+.btn { text-decoration: none; padding: 15px 35px; border-radius: 30px; font-weight: bold; margin: 0 10px; display: inline-block; transition: 0.3s; }
+.primary { background: var(--accent); color: white; }
+.secondary { border: 1px solid var(--accent); color: var(--accent); }
+
+/* 1. 네비게이션: 유리 질감(Glassmorphism) */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px); /* 배경 흐리게 */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; }
+
+.nav-btn-exp {
+    text-decoration: none;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+.nav-btn-exp:hover { background: var(--accent); color: white; }
+
+/* 2. 카드 애니메이션: 마우스를 올리면 떠오르는 효과 */
+.theme-card, .part-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.theme-card:hover, .part-card:hover {
+    transform: translateY(-10px); /* 위로 슥 올라감 */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-color: var(--accent);
+}
+
+/* 3. 체험하기 버튼: 은은하게 빛나는(Glow) 효과 */
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(142, 141, 138, 0.3);
+}
+
+.btn-glow::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.btn-glow:hover::after {
+    left: 120%; /* 마우스 올리면 빛이 슥 지나감 */
+}
+
+/* 4. 스크롤 애니메이션 기초 클래스 */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Emotion Themes */
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px; }
+.theme-card { padding: 25px; border-radius: 15px; background: white; text-align: left; display: flex; align-items: center; gap: 15px; border: 1px solid #eee; }
+.color-dot { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; }
+.fire .color-dot { background: var(--fire); }
+.wake .color-dot { background: var(--wake); }
+.step .color-dot { background: var(--step); }
+.focus .color-dot { background: var(--focus); }
+.calm .color-dot { background: var(--calm); }
+.complex .color-dot { background: var(--complex); }
+
+/* MBTI Strategy */
+.mbti-strategy { padding: 100px 0; background: #f4f1ea; }
+.flex-row { display: flex; gap: 50px; align-items: center; }
+.mbti-list { list-style: none; margin-top: 20px; }
+.mbti-list li { margin-bottom: 10px; padding: 10px; background: white; border-radius: 8px; }
+.tech-box { background: var(--accent); color: white; padding: 40px; border-radius: 20px; }
+.security-badge { margin-top: 20px; background: rgba(0,0,0,0.1); padding: 10px; border-radius: 10px; font-size: 0.9rem; }
+
+/* App Parts */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 80px 20px; }
+.part-card { background: white; padding: 40px; border-radius: 20px; text-align: center; border: 1px solid #eee; }
+.part-num { display: inline-block; color: var(--accent); font-weight: bold; margin-bottom: 10px; }
+
+/* CTA */
+.cta { padding: 120px 0; text-align: center; }
+.download-btn { display: inline-block; padding: 20px 60px; background: #333; color: white; text-decoration: none; border-radius: 40px; font-size: 1.3rem; margin: 30px 0; }
+.copyright { font-size: 0.8rem; color: #aaa; }
+
+@media (max-width: 768px) {
+    .flex-row { flex-direction: column; }
+    .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* [추가] 숨김/보임 제어용 */
+.hidden { display: none !important; }
+
+/* [추가] 암전용 검은 덮개 스타일 */
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: black;
+    opacity: 0; /* 처음엔 투명 */
+    visibility: hidden;
+    z-index: 9999; /* 가장 위에 */
+    transition: all 0.5s ease; /* 0.5초 동안 서서히 나타남/사라짐 */
+}
+
+/* 암전 활성화 상태 */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* [추가] 체험용 퀴즈 모드 전체 화면 스타일 */
+.quiz-mode {
+    position: fixed; /* 전체 화면 */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--bg-light); /* 기존 배경색 유지 */
+    z-index: 9998; /* 네비게이션보다 위, 보호막보단 아래 */
+    display: flex; align-items: center; justify-content: center;
+    padding-top: 50px; /* 약간의 여백 */
+}
+
+.quiz-container { text-align: center; }
+.quiz-title { margin-bottom: 30px; color: var(--accent); }
+.quiz-input { padding: 15px; border-radius: 20px; border: 1px solid #ccc; width: 80%; }
+.btn-quit { margin-top: 20px; padding: 10px 20px; background: #333; color: white; border: none; border-radius: 10px; cursor: pointer; }
+.timer-bar {
+    height: 8px;
+    background: var(--accent);
+    width: 100%;
+    border-radius: 4px;
+    transition: width 0.1s linear; /* 게이지가 끊기지 않고 부드럽게 줄어듦 */
+    margin-bottom: 20px;
+}
